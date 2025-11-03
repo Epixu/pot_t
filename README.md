@@ -1,14 +1,18 @@
 C++23 type-safe power-of-two unsigned integers for your compression needs. Includes two types:
  - `Langulus::potnz_t`: a non-zero unsigned power-of-two integer. Slightly faster on expansion, but slower on compression. Useful if you plan on interacting with built-in integers.
- - `Langulus::pot_t`: a zeroable unsigned power-of-two integer. Slightly faster on compression, but slower on expansion. Useful if you plan on interacting with other pot_t.         
+ - `Langulus::pot_t`: a zeroable unsigned power-of-two integer. Slightly faster on compression, but slower on expansion. Useful if you plan on interacting with other pot_t.
+
 -----------------
-- ✅ Always inlined
-- ✅ No side effects (when compiled with G++/Clang)
-- ✅ Type-safe
-- ✅ Supports constexpr
-- ✅ Behaves like a built-in integer - will never default-initialize to 0
-- ✅ Will throw on arithmetic error/bad initialization when `LANGULUS_OPTION_SAFE_MODE` is defined
+
+✅ Always inlined<br>
+✅ No side effects (when compiled with G++/Clang)<br>
+✅ Type-safe<br>
+✅ Supports constexpr<br>
+✅ Behaves like a built-in integer - will never default-initialize to 0<br>
+✅ Will throw on arithmetic error/bad initialization when `LANGULUS_OPTION_SAFE_MODE` is defined
+
 -----------------
+
 ### Download the library directly from cmake, and link it:
 ```cmake
 include(FetchContent)
