@@ -4,13 +4,13 @@ C++23 type-safe power-of-two unsigned integers for your compression needs. Inclu
 
 -----------------
 
-[![Langulus::pot_t CI](https://github.com/Epixu/pot_t/actions/workflows/ci.yml/badge.svg?branch=main)](https://github.com/Epixu/pot_t/actions/workflows/ci.yml)
+[![Langulus::pot_t CI](https://github.com/Epixu/pot_t/actions/workflows/ci.yml/badge.svg?branch=main)](https://github.com/Epixu/pot_t/actions/workflows/ci.yml)<br>
 ✅ Always inlined<br>
 ✅ No side effects (when compiled with G++/Clang)<br>
 ✅ Type-safe<br>
 ✅ Supports constexpr<br>
 ✅ Behaves like a built-in integer - will never default-initialize to 0<br>
-✅ Will throw on arithmetic error/bad initialization when `LANGULUS_OPTION_SAFE_MODE` is defined
+✅ Will throw on arithmetic error/bad initialization when `LANGULUS_OPTION_SAFE_MODE` is defined<br>
 ✅ Tested on Clang 19, GCC 14.2, MSVC v143, Clang-CL 19
 
 -----------------
