@@ -24,17 +24,21 @@ target_link_libraries(YourTarget PUBLIC LangulusPot)
 
 ### Usage:
 ```c++
-#include <pot_t.hpp>
+#include <Langulus/Pot.hpp>
+
 using namespace Langulus;
 
-// constexpr pot_t value  = 1024;       // not allowed - avoids implicit coversions and subtle errors
+// not allowed - avoids implicit coversions and subtle errors
+// constexpr pot_t value  = 1024;
 constexpr pot_t   value   = 1024_pot;   // ok
 constexpr pot_t   value2  = 1024_potnz; // ok
 constexpr potnz_t nzvalue = 64_potnz;   // ok
 
 static_assert(1024_pot == 1024_pot);
 static_assert(1024_pot == 1024_potnz);
-// static_assert(1024_pot == 1024);     // not allowed, integer must be unsigned - avoids implicit coversions
+
+// not allowed, integer must be unsigned - avoids implicit coversions
+// static_assert(1024_pot == 1024);     
 static_assert(1024_pot == 1024u);       // ok
 static_assert(1024_pot != 1025u);
 static_assert(1024_pot >  64u);
@@ -46,9 +50,11 @@ constexpr pot_t  not_expanded = 1024_pot * 64_pot;
 static_assert(    expanded == 1024u + 64u);
 static_assert(not_expanded == 1024u * 64u);
 
-potnz_t nzvalue = 0; // will throw if LANGULUS_OPTION_SAFE_MODE cmake option is enabled
-                     // same applies for arithmetic operations that result in zero and involve potnz_t
+// will throw if LANGULUS_OPTION_SAFE_MODE cmake option is enabled:
+potnz_t nzvalue = 0;
+// same applies for arithmetic operations that result in zero and involve potnz_t
 
-constexpr uint8_t small = static_cast<uint8_t>(1024_pot); // will throw if LANGULUS_OPTION_SAFE_MODE cmake option is enabled
-constexpr uint8_t small = static_cast<uint8_t>(128_pot);  // ok
+// will throw if LANGULUS_OPTION_SAFE_MODE cmake option is enabled:
+uint8_t small = static_cast<uint8_t>(1024_pot);
+uint8_t small = static_cast<uint8_t>(128_pot);  // ok
 ```
