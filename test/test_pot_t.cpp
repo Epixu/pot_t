@@ -6,7 +6,7 @@
 /// SPDX-License-Identifier: MIT                                              
 ///                                                                           
 #include <catch2/catch.hpp>
-#include <pot_t.hpp>
+#include <Langulus/Pot.hpp>
 
 using namespace Langulus;
 

@@ -28,6 +28,7 @@
    #define lgls_if_safe(a)
    #define lgls_if_unsafe(a) a
    #define lgls_assume(CONDITION, MESSAGE)
+   #define lgls_assume_and_optimize(CONDITION, MESSAGE)
 #endif
 
 #if defined(_MSC_VER) and not defined(__clang__)
