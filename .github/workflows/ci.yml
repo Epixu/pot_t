@@ -12,13 +12,13 @@ jobs:
         os:    [ubuntu-24.04, windows-latest]
         build: [debug, release]
         arch:  [x86, x64]
-        cxx:   [g++-14, clang++-19, clang-cl, v143]
+        cxx:   [g++-14, clang++-19, ClangCL, v143]
 
         exclude:
           - os:  ubuntu-24.04
             cxx: v143
           - os:  ubuntu-24.04
-            cxx: clang-cl
+            cxx: ClangCL
           - os:  windows-latest
             cxx: g++-14
           - os:  windows-latest
