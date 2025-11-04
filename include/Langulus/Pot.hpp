@@ -19,10 +19,17 @@
    #define lgls_assume(CONDITION, MESSAGE) \
       if (not static_cast<bool>(CONDITION)) \
          throw ::std::runtime_error {MESSAGE};
-   #define lgls_assume_and_optimize(CONDITION, MESSAGE) \
-      if (not static_cast<bool>(CONDITION)) \
-         throw ::std::runtime_error {MESSAGE}; \
-      [[assume(CONDITION)]]
+
+   #if defined(_MSC_VER) and not defined(__clang__)
+      #define lgls_assume_and_optimize(CONDITION, MESSAGE) \
+         if (not static_cast<bool>(CONDITION)) \
+            throw ::std::runtime_error {MESSAGE};
+   #else
+      #define lgls_assume_and_optimize(CONDITION, MESSAGE) \
+         if (not static_cast<bool>(CONDITION)) \
+            throw ::std::runtime_error {MESSAGE}; \
+         [[assume(CONDITION)]]
+   #endif
 #else
    #define lgls_has_assumptions noexcept
    #define lgls_if_safe(a)
@@ -126,7 +133,7 @@ namespace Langulus
 
       lgls_inline lgls_if_unsafe(lgls_pure)
       constexpr uintptr_t mask() const lgls_has_assumptions {
-         return operator uintptr_t () - 1;
+         return this->operator uintptr_t () - 1;
       }
    };
 
@@ -205,7 +212,7 @@ namespace Langulus
 
       lgls_inline lgls_if_unsafe(lgls_pure)
       constexpr uintptr_t mask() const lgls_has_assumptions {
-         return operator uintptr_t () - 1;
+         return this->operator uintptr_t () - 1;
       }
    };
 
