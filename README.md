@@ -27,6 +27,7 @@ FetchContent_MakeAvailable(LangulusPot)
 
 target_link_libraries(YourTarget PUBLIC LangulusPot)
 ```
+Alternatively, you can always just copy the `include/Langulus/Pot.hpp` header and use that in your own code, if you prefer to keep things simple.
 
 ### Usage:
 ```c++
@@ -64,4 +65,3 @@ potnz_t nzvalue = 0;
 uint8_t small = static_cast<uint8_t>(1024_pot);
 uint8_t small = static_cast<uint8_t>(128_pot);  // ok
 ```
-Alternatively, you can always just copy the `include/Langulus/Pot.hpp` header and use that in your own code, if you prefer to keep things simple.
